@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.31057288.css",
-    "main.js": "/static/js/main.345382f0.js",
-    "index.html": "/index.html",
-    "main.31057288.css.map": "/static/css/main.31057288.css.map",
-    "main.345382f0.js.map": "/static/js/main.345382f0.js.map"
+    "main.css": "/tapu.com-case/static/css/main.31057288.css",
+    "main.js": "/tapu.com-case/static/js/main.82cedb8f.js",
+    "index.html": "/tapu.com-case/index.html",
+    "main.31057288.css.map": "/tapu.com-case/static/css/main.31057288.css.map",
+    "main.82cedb8f.js.map": "/tapu.com-case/static/js/main.82cedb8f.js.map"
   },
   "entrypoints": [
     "static/css/main.31057288.css",
-    "static/js/main.345382f0.js"
+    "static/js/main.82cedb8f.js"
   ]
 }
