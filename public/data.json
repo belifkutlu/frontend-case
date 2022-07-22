@@ -1,0 +1,33 @@
+{
+  "places": [
+    {
+      "id": 1,
+      "name": "Villa Bosphorus",
+      "description": "Boğaza karşı nefis balık restorant",
+      "image": "https://istmedia01.s3.eu-west-1.amazonaws.com/ist_items/listing/villa-bosphorus-5c2df2aa1aa47.jpg",
+      "rate": "4.00",
+      "distance": 3000,
+      "price": 200
+    },
+    {
+      "id": 2,
+      "name": "Emaar SQUARE AVM",
+      "description": "TR'nin en buyuk AVMsi",
+      "image": "https://images.skyscrapercenter.com/complex/2015-08-27-11-07-51_emaarsquare_heights-address_(c)tavconstruction.jpg",
+      "rate": "4.40",
+      "distance": 4300,
+      "price": 100
+    },
+    {
+      "id": 3,
+      "name": "Bebek Starbucks",
+      "description": "Manzarasi en iyi starbucks",
+      "image": "https://i0.wp.com/couplecoffeejoy.com/wp-content/uploads/2018/06/IMG_4029.jpg?resize=1170%2C780&ssl=1",
+      "rate": "5.00",
+      "distance": 14000,
+      "price": 125
+    }
+  ],
+  "shippingCost": 24.99,
+  "tax": 0.18
+}
