@@ -15,7 +15,9 @@ export default function List() {
 
   useEffect(() => {
     function fetchData() {
-      fetch("/data.json")
+      fetch(
+        "https://raw.githubusercontent.com/belifkutlu/tapu.com-case/master/public/data.json"
+      )
         .then((res) => res.json())
         .then((data) => {
           setData(data);
