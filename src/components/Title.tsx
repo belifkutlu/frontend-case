@@ -12,4 +12,6 @@ const StyledTitle = styled.h3`
   color: ${({ theme }) => theme.colors.black};
   font-weight: 600;
   font-size: 32px;
+  margin: 0;
+  margin-bottom: 20px;
 `;

@@ -41,6 +41,7 @@ const Wrapper = styled.div`
 const UserName = styled.h3`
   font-weight: 700;
   font-size: 36px;
+  margin: 10px 0px;
 `;
 
 const InfoWrapper = styled.div`

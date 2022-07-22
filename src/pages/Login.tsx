@@ -66,6 +66,6 @@ export default function Login() {
 }
 
 const Wrapper = styled.div`
-  padding-top: 50px;
   padding: 0px 20px;
+  padding-top: 50px;
 `;
