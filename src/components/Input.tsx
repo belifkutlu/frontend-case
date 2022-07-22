@@ -4,11 +4,13 @@ type Props = {
   placeholder?: string;
   value: string;
   onChange: (value: string) => void;
+  type?: string;
 };
 
-export default function Input({ placeholder, onChange, value }: Props) {
+export default function Input({ placeholder, onChange, value, type }: Props) {
   return (
     <StyledInput
+      type={type}
       placeholder={placeholder}
       onChange={(e) => onChange(e.target.value)}
       value={value}

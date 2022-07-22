@@ -65,6 +65,7 @@ export default function List() {
 
 const Wrapper = styled.div`
   padding: 20px;
+  padding-bottom: 120px;
 `;
 
 const PriceInfo = styled.div`
