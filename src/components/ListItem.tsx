@@ -4,27 +4,48 @@ import { Item } from "../types/item";
 import StarIcon from "./Icons/StarIcon";
 
 type Props = {
-  item: Item;
+  dataItem: Item;
+  onAddBasket: (item: Item) => void;
+  onRemoveBasket: (item: Item) => void;
+  inBasket: boolean;
 };
 
-export default function ListItem({ item }: Props) {
+export default function ListItem({
+  dataItem,
+  onAddBasket,
+  onRemoveBasket,
+  inBasket,
+}: Props) {
   return (
     <Wrapper>
       <ImageWrapper>
-        <Image src={item.image} alt="image" />
+        <Image src={dataItem.image} alt="image" />
       </ImageWrapper>
       <InfoWrapper>
-        <Title>{item.name}</Title>
-        <Description>{item.description}</Description>
+        <Title>{dataItem.name}</Title>
+        <Description>
+          {dataItem.description} - {dataItem.price.toFixed(2)} TL
+        </Description>
         <BottomInfo>
           <Rate>
             <StarIcon />
-            {item.rate}
+            {dataItem.rate}
           </Rate>
           <Distance>
-            <LocationIcon /> {item.distance / 1000} km
+            <LocationIcon /> {dataItem.distance / 1000} km
           </Distance>
         </BottomInfo>
+        <BasketButton
+          onClick={() => {
+            if (inBasket) {
+              onRemoveBasket(dataItem);
+            } else {
+              onAddBasket(dataItem);
+            }
+          }}
+        >
+          Sepete {inBasket ? "Eklendi" : "Ekle"}
+        </BasketButton>
       </InfoWrapper>
     </Wrapper>
   );
@@ -34,10 +55,12 @@ const Wrapper = styled.div`
   display: flex;
   margin-bottom: 20px;
 `;
+
 const ImageWrapper = styled.div`
   flex: 0 0 100px;
   margin-right: 20px;
 `;
+
 const Image = styled.img`
   max-width: 100%;
   border-radius: 10px;
@@ -79,4 +102,16 @@ const Distance = styled.div`
   svg {
     margin-right: 5px;
   }
+`;
+
+const BasketButton = styled.button`
+  border: none;
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  border: 1px solid ${({ theme }) => theme.colors.red};
+  color: ${({ theme }) => theme.colors.red};
+  background: none;
+  cursor: pointer;
 `;

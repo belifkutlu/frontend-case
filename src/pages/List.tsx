@@ -12,6 +12,7 @@ export default function List() {
     shippingCost: number;
     tax: number;
   } | null>(null);
+  const [basket, setBasket] = useState<Item[]>([]);
 
   useEffect(() => {
     function fetchData() {
@@ -27,11 +28,20 @@ export default function List() {
     fetchData();
   }, []);
 
+  function handleOnRemoveBasket(item: Item) {
+    const filteredBasket = basket.filter(
+      (basketItem) => basketItem.id !== item.id
+    );
+
+    setBasket(filteredBasket);
+  }
+
   function calculatePrices() {
-    if (!data) return;
-    const totalPrice = data?.places.reduce((acc, cur) => acc + cur.price, 0);
-    const taxPrice = totalPrice * data.tax;
-    const costPrice = taxPrice + data.shippingCost;
+    const tax = 0.18;
+    const shippingCost = 20;
+    const totalPrice = basket.reduce((acc, cur) => acc + cur.price, 0);
+    const taxPrice = totalPrice * tax;
+    const costPrice = taxPrice + shippingCost;
     return {
       totalPrice,
       costPrice,
@@ -49,14 +59,22 @@ export default function List() {
       ) : (
         <>
           {data?.places.map((item) => (
-            <ListItem key={item.id} item={item} />
+            <ListItem
+              key={item.id}
+              dataItem={item}
+              onAddBasket={(item) => setBasket([...basket, item])}
+              onRemoveBasket={handleOnRemoveBasket}
+              inBasket={basket.some((basketItem) => basketItem.id === item.id)}
+            />
           ))}
-          <PriceInfo>
-            <PriceTitle>Ürünlerin Toplamı:</PriceTitle>
-            <p>Toplam: {prices?.totalPrice?.toFixed(2)} TL</p>
-            <p>Vergi + Kargo Toplami: {prices?.costPrice?.toFixed(2)} TL</p>
-            <p>Genel Toplam: {prices?.priceWithCost.toFixed(2)} TL</p>
-          </PriceInfo>
+          {basket.length > 0 && (
+            <PriceInfo>
+              <PriceTitle>Ürünlerin Toplamı:</PriceTitle>
+              <p>Toplam: {prices.totalPrice.toFixed(2)} TL</p>
+              <p>Vergi + Kargo Toplami: {prices.costPrice?.toFixed(2)} TL</p>
+              <p>Genel Toplam: {prices.priceWithCost.toFixed(2)} TL</p>
+            </PriceInfo>
+          )}
         </>
       )}
     </Wrapper>

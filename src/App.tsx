@@ -6,9 +6,9 @@ import List from "./pages/List";
 import Account from "./pages/Account";
 import BottonBar from "./components/BottonBar";
 import Container from "./components/Container";
-import theme from "./theme";
 import { UserProvider } from "./contexts/user";
 import GuardRoute from "./components/GuardRoute";
+import theme from "./theme";
 
 export default function App() {
   return (
@@ -18,7 +18,6 @@ export default function App() {
           <BottomBarWrapper>
             <Routes>
               <Route path="/login" element={<Login />} />
-
               <Route element={<GuardRoute />}>
                 <Route path="/" element={<List />} />
                 <Route path="/account" element={<Account />} />
